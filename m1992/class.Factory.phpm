@@ -1,0 +1,39 @@
+<?php	
+	class Factory {
+		//Para enteros - Juan Beleño - 21/12/2013 - v0.1
+		public static function FactoryObject1 (PDO $objPDO, $strmember, $strTable, $strvalue) {
+			$strQuery ="SELECT id FROM ".$strTable." WHERE ".$strmember." = :value";
+			$objStatement = $objPDO->prepare($strQuery);
+			$objStatement->bindParam(':value', $strvalue, PDO::PARAM_INT);
+			$objStatement->execute();
+			$arRow = $objStatement->fetch(PDO::FETCH_ASSOC);
+			$arrayResult = array();
+			if(is_array($arRow)){
+				foreach($arRow as $array1){
+					foreach($array1 as $key => $val){
+						$arrayResult[] = $val;
+					}
+				}
+			}
+			return $arrayResult;
+		}
+		
+		// Para cadenas
+		public static function FactoryObject2 (PDO $objPDO, $strmember, $strTable, $strvalue) {
+			//$strQuery ="SELECT id FROM ".$strTable." WHERE ".$strmember." = :value";
+			$strQuery ="SELECT id FROM  cuenta WHERE usuario = 'jsbeleno'";
+			$objStatement = $objPDO->prepare($strQuery);
+			//$objStatement->bindParam(':value', $strvalue, PDO::PARAM_STR,64);
+			$objStatement->execute();
+			$arRow = $objStatement->fetch(PDO::FETCH_NUM);
+			$arrayResult = array();
+			if(count($arRow) != 0){
+				foreach($array1 as $val){
+					$arrayResult[] = $val;
+				}
+			}
+			return $arrayResult;
+		}
+		
+	}
+?>

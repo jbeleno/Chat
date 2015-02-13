@@ -1,0 +1,28 @@
+<?php
+	/*
+	*Esta detalla los contactos del usuario - Juan Beleño - 21/12/2013 - v0.1
+	*/
+	class DetalleContactos extends DataBoundObject {
+	
+		protected $Nombre;
+		protected $IdGrupoContactos;
+		protected $IdCuenta;
+		protected $IdContacto;
+		
+		/*Se establece la tabla en base de datos que se relaciona con esta clase*/
+		protected function DefineTableName() {
+			return("detalle_contactos");
+		}
+		
+		/*Se relacionan los campos en la base de datos con los campos en el objeto*/
+		protected function DefineRelationMap() {
+			return(array(
+			"id" => "ID",
+			"nombre" => "Nombre",
+			"id_grupo_contactos" => "IdGrupoContactos",
+			"id_cuenta" => "IdCuenta",
+			"id_contacto"=>"IdContacto"
+			));
+		}
+	}
+?>

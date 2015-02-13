@@ -1,0 +1,31 @@
+<?php
+	/*
+	*Esta parte controla los mensajes entre usuarios - Juan Beleño - 21/12/2013 - v0.1
+	*/
+	class Mensaje extends DataBoundObject {
+	
+		protected $IdChat;
+		protected $Fecha;
+		protected $IdCuenta;
+		protected $Foto;
+		protected $Mensaje;
+		
+		
+		/*Se establece la tabla en base de datos que se relaciona con esta clase*/
+		protected function DefineTableName() {
+			return("mensaje");
+		}
+		
+		/*Se relacionan los campos en la base de datos con los campos en el objeto*/
+		protected function DefineRelationMap() {
+			return(array(
+			"id" => "ID",
+			"id_chat" => "IdChat",
+			"fecha" => "Fecha",
+			"id_cuenta" => "IdCuenta",
+			"foto" => "Foto",
+			"mensaje" => "Mensaje"
+			));
+		}
+	}
+?>

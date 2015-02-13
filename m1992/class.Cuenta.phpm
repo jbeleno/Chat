@@ -1,0 +1,40 @@
+<?php
+	/*
+	*Esta parte representa la cuenta del usuario - Juan Beleño - 21/12/2013 - v0.1
+	*/
+	class Cuenta extends DataBoundObject {
+	
+		protected $Correo;
+		protected $Usuario;
+		protected $Celular;
+		protected $Password;
+		protected $IdIdioma;
+		protected $Foto;
+		protected $FechaRegistro;
+		protected $IdSesion;
+		protected $EstadoSesion;
+		protected $Estado;
+		
+		/*Se establece la tabla en base de datos que se relaciona con esta clase*/
+		protected function DefineTableName() {
+			return("cuenta");
+		}
+		
+		/*Se relacionan los campos en la base de datos con los campos en el objeto*/
+		protected function DefineRelationMap() {
+			return(array(
+			"id" => "ID",
+			"correo" => "Correo",
+			"usuario" => "Usuario",
+			"celular" => "Celular",
+			"password" => "Password",
+			"id_idioma" => "IdIdioma",
+			"foto" => "Foto",
+			"fecha_registro" => "FechaRegistro",
+			"id_sesion" => "IdSesion",
+			"estado_sesion" => "EstadoSesion",
+			"estado" => "Estado"
+			));
+		}
+	}
+?>
